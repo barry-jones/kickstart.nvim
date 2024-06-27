@@ -228,7 +228,24 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  'OmniSharp/omnisharp-vim',
+  'Mofiqul/vscode.nvim',
+  {
+    'theprimeagen/harpoon',
+    config = function()
+      local mark = require 'harpoon.mark'
+      local ui = require 'harpoon.ui'
+
+      vim.keymap.set('n', '<leader>a', mark.add_file)
+      vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
+
+      vim.keymap.set('n', '<C-h>', function()
+        ui.nav_file(1)
+      end)
+      vim.keymap.set('n', '<C-t>', function()
+        ui.nav_file(2)
+      end)
+    end,
+  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
