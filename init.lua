@@ -585,9 +585,6 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -597,7 +594,16 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        -- For a list of all available lsp server configuration available, go to link below:
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+        bashls = {},
+        tsserver = {},
+        pyright = {},
         csharp_ls = {},
+        cssls = {},
+        css_variables = {},
+        html = {},
+        htmx = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -856,7 +862,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'css' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
